@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-let appElement = document.getElementById('app');
-let App = (props) => { return <div>React works!</div> };
+import Title from './components/title';
 
-render(<App/>, appElement);
+let appElement = document.getElementById('app');
+
+render(<Title/>, appElement);
