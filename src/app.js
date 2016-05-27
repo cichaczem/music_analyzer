@@ -1,8 +1,30 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
-import Title from './components/title';
+import Title from './layout/title';
+import Apples from './components/apples';
+import Bananas from './components/bananas';
 
-let appElement = document.getElementById('app');
+const store = createStore(
+  combineReducers({
+    routing: routerReducer
+  })
+);
 
-render(<Title/>, appElement);
+const history = syncHistoryWithStore(browserHistory, store);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={Title}>
+        <Route path="foo" component={Apples}/>
+        <Route path="bar" component={Bananas}/>
+      </Route>
+    </Router>
+  </Provider>,
+  document.getElementById('app')
+);
