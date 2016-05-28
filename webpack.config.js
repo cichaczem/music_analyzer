@@ -2,8 +2,12 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/app.js',
-  output: { path: path.resolve(__dirname, "build"), filename: 'bundle.js' },
+  entry: ['webpack-hot-middleware/client?reload=true', './src/app.js'],
+  output: {
+    path: path.resolve(__dirname, "build"),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
   module: {
     loaders: [
       {
@@ -16,4 +20,8 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };

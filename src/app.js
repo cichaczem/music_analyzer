@@ -2,12 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
-import Title from './layout/title';
-import Apples from './components/apples';
-import Bananas from './components/bananas';
+import routes from './routes';
 
 const store = createStore(
   combineReducers({
@@ -19,12 +17,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={Title}>
-        <Route path="foo" component={Apples}/>
-        <Route path="bar" component={Bananas}/>
-      </Route>
-    </Router>
+    <Router history={history} routes={routes} />
   </Provider>,
   document.getElementById('app')
 );
