@@ -8,9 +8,10 @@ const tracks = (state = {
 }, action) => {
   switch (action.type) {
     case REQUEST_LOVED_TRACKS:
-      return Object.assign({}, state, {
+      return {
         isFetching: true,
-      })
+        items: []
+      }
     case RECEIVE_LOVED_TRACKS:
       return {
         isFetching: false,

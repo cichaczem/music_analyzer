@@ -1,13 +1,21 @@
 import React, { PropTypes } from 'react'
+import d3 from 'd3'
 
-class Analyzer extends React.Component {
-  componentDidUpdate(prevProps) {
+class Chart extends React.Component {
+  componentDidUpdate() {
     const { data } = this.props
-    console.log(data.length)
+    this.clearChart()
     if(data.length > 0) {
-      d3.select("svg").remove()
       this.renderChart()
     }
+  }
+
+  componentWillUnmount() {
+    this.clearChart()
+  }
+
+  clearChart() {
+    d3.selectAll(".chart > *").remove()
   }
 
   renderChart() {
@@ -37,8 +45,6 @@ class Analyzer extends React.Component {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
 
     x.domain(data.map(track => track.artist));
     y.domain([0, d3.max(data, function(d) { return d.occured; })]);
@@ -76,7 +82,7 @@ class Analyzer extends React.Component {
   }
 }
 
-Analyzer.propTypes = {
+Chart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       artist: PropTypes.string,
@@ -85,4 +91,4 @@ Analyzer.propTypes = {
   ).isRequired,
 }
 
-export default Analyzer;
+export default Chart;

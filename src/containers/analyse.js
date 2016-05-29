@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import Menu from '../components/shared/menu'
-import Analyzer from '../components/analyzer'
+import Chart from '../components/chart'
 import Form from '../components/form'
 import Loader from '../components/shared/loader'
 
@@ -38,7 +38,7 @@ class Analyse extends React.Component {
       <div>
         {this.renderLoader()}
         <Form onSubmit={this.handleSubmit} />
-        <Analyzer data={tracks} />
+        <Chart data={tracks} />
       </div>
     )
   }
