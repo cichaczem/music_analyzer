@@ -1,4 +1,5 @@
 import React from 'react'
+import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import Express from 'express'
@@ -9,6 +10,7 @@ import WebpackHotMiddleware from 'webpack-hot-middleware';
 
 import config from '../webpack.config.js';
 import routes from './routes'
+import store from './store'
 
 const app = Express()
 const ip = '127.0.0.1'
@@ -35,7 +37,11 @@ function handleRender(req, res) {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (renderProps) {
-      res.status(200).send(indexHtml(renderToString(<RouterContext {...renderProps} />)))
+      res.status(200).send(indexHtml(renderToString(
+        <Provider store={store}>
+          <RouterContext {...renderProps} />
+        </Provider>
+      )))
     } else {
       res.status(404).send('Not found')
     }
