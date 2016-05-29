@@ -1,15 +1,17 @@
 {
-  "name": "dawid-for-albacross",
+  "name": "music-analyzer",
   "version": "1.0.0",
-  "description": "App created as part of a recruitment process",
+  "description": "Applcation for analyzing your music on Last.fm",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --require babel-core/register -- src/server.js"
   },
   "author": "Dawid Cichuta",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "d3": "^3.5.17",
     "es6-promise": "^3.2.1",
     "express": "^4.13.4",
     "isomorphic-fetch": "^2.2.1",
@@ -26,7 +28,6 @@
     "babel-core": "^6.9.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-syntax-jsx": "^6.8.0",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "webpack": "^1.13.1",
