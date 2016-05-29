@@ -4,7 +4,7 @@ class Analyzer extends React.Component {
   render() {
     return (
       <div>
-        {this.props.data}
+        {this.props.data.length}
       </div>
     )
   }

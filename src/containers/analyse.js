@@ -12,17 +12,20 @@ class Analyse extends React.Component {
   }
 
   render() {
+    const { tracks } = this.props
     return (
       <div>
         <Form onSubmit={this.handleSubmit.bind(this)}/>
-        <Analyzer data={"data"} />
+        <Analyzer data={tracks} />
       </div>
     )
   }
 }
 
 function masStateToProps(state) {
-  return {}
+  return {
+    tracks: state.tracks.items
+  }
 }
 
 export default connect(masStateToProps)(Analyse);
