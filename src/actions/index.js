@@ -11,9 +11,13 @@ const requestLovedTracks = () => {
 }
 
 const receiveLovedTracks = (json) => {
+  let tracks = []
+  if(json["lovedtracks"] !== undefined && json["lovedtracks"]["track"] !== undefined) {
+    tracks = json.lovedtracks.track
+  }
   return {
     type: RECEIVE_LOVED_TRACKS,
-    tracks: json.lovedtracks.track
+    tracks: tracks
   }
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 class Form extends React.Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class Form extends React.Component {
     }
 
     this.handleError = this.handleError.bind(this)
+    this.handleChange = this.handleChange.bind(this)
 
     this.onSubmit = (e) => {
       e.preventDefault()
@@ -27,16 +28,25 @@ class Form extends React.Component {
   render() {
     const { handle, error } = this.state
     return (
-      <form>
-        <label>insert your Last.fm username - eg. "rj"</label>:
-        <input type="text"
-               value={handle}
-               onChange={this.handleChange.bind(this)} />
-        {error}
-        <button onClick={this.onSubmit}>Analyse</button>
-      </form>
+      <div className="row">
+        <div className="col-lg-6 col-lg-offset-3">
+          <form>
+            <div className="input-group">
+              <input className="form-control" placeholder="Last.fm username - eg. 'rj'" onChange={this.handleChange}/>
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="button" onClick={this.onSubmit}>Go!</button>
+              </span>
+            </div>
+            {error}
+          </form>
+        </div>
+      </div>
     )
   }
+}
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired
 }
 
 export default Form

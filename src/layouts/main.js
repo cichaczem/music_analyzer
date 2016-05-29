@@ -5,8 +5,12 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Menu />
-        {this.props.children}
+        <div className="container">
+          <Menu />
+          <div className="starter-template">
+            {this.props.children}
+          </div>
+        </div>
       </div>
     )
   }

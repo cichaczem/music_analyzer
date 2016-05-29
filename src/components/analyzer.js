@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 class Analyzer extends React.Component {
   render() {
@@ -8,6 +8,10 @@ class Analyzer extends React.Component {
       </div>
     )
   }
+}
+
+Analyzer.propTypes = {
+  data: PropTypes.array.isRequired,
 }
 
 export default Analyzer;

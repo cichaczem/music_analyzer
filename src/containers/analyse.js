@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Menu from '../components/shared/menu'
 import Analyzer from '../components/analyzer'
 import Form from '../components/form'
@@ -19,8 +19,7 @@ function mapDispatchToProps(dispatch) {
   return { fetchLovedTracks: bindActionCreators(fetchLovedTracks, dispatch) };
 }
 
-@connect(mapStateToProps, mapDispatchToProps)
-export default class Analyse extends React.Component {
+class Analyse extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = props.fetchLovedTracks.bind(this)
@@ -42,3 +41,11 @@ export default class Analyse extends React.Component {
     )
   }
 }
+
+Analyse.propTypes = {
+  tracks: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  fetchLovedTracks: PropTypes.func.isRequired
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Analyse)
