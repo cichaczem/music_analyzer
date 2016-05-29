@@ -18,6 +18,8 @@ const port = 8080
 
 const compiler = webpack(config)
 
+app.use(Express.static(config.output.path));
+
 app.use(WebpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
   historyApiFallback: true,
