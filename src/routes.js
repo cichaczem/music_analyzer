@@ -1,11 +1,11 @@
 import React from 'react'
-import { Route } from 'react-router'
+import { IndexRoute, Route } from 'react-router'
 
-import Title from './layout/title';
-import Apples from './components/apples';
-import Bananas from './components/bananas';
+import Main from './layouts/main'
+import Home from './containers/home'
+import Analyse from './containers/analyse'
 
-export default <Route path="/" component={Title}>
-                 <Route path="apples" component={Apples}/>
-                 <Route path="bananas" component={Bananas}/>
+export default <Route path="/" component={Main}>
+                 <Route path="analyzer" component={Analyse}/>
+                 <IndexRoute component={Home}/>
                </Route>
