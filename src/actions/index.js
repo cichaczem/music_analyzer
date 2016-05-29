@@ -1,4 +1,4 @@
-import API from '../api'
+import API from '../lib/api'
 
 export const REQUEST_LOVED_TRACKS = 'REQUEST_LOVED_TRACKS'
 export const RECEIVE_LOVED_TRACKS = 'RECEIVE_LOVED_TRACKS'
