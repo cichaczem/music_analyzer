@@ -7,10 +7,12 @@ import Loader from '../components/shared/loader'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { fetchLovedTracks } from '../actions'
+import countArtistOccurences from '../lib/artist_occurences_counter'
 
 function mapStateToProps(state) {
+  const artists = countArtistOccurences(state.tracks.items)
   return {
-    tracks: state.tracks.items,
+    tracks: artists,
     isFetching: state.tracks.isFetching
   }
 }
