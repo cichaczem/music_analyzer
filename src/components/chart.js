@@ -5,9 +5,8 @@ class Chart extends React.Component {
   componentDidUpdate() {
     const { data } = this.props
     this.clearChart()
-    if(data.length > 0) {
+    if(data.length > 0)
       this.renderChart()
-    }
   }
 
   componentWillUnmount() {

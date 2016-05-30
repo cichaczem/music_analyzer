@@ -12,7 +12,7 @@ import countArtistOccurences from '../lib/artist_occurences_counter'
 function mapStateToProps(state) {
   const artists = countArtistOccurences(state.tracks.items)
   return {
-    tracks: artists,
+    artists: artists,
     isFetching: state.tracks.isFetching
   }
 }
@@ -33,19 +33,19 @@ class Analyze extends React.Component {
   }
 
   render() {
-    const { tracks } = this.props
+    const { artists } = this.props
     return (
       <div>
         {this.renderLoader()}
         <Form onSubmit={this.handleSubmit} />
-        <Chart data={tracks} />
+        <Chart data={artists} />
       </div>
     )
   }
 }
 
 Analyze.propTypes = {
-  tracks: PropTypes.array.isRequired,
+  artists: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   fetchLovedTracks: PropTypes.func.isRequired
 }

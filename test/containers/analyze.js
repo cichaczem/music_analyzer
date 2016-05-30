@@ -26,7 +26,7 @@ describe('Analyze container', function(){
     )
 
     expect(imgs.length).toEqual(0);
-  });
+  })
 
   it('Loader should be visible if isFetching is true', () => {
     const getState = { tracks: { isFetching: true, items: [] } }
@@ -42,5 +42,5 @@ describe('Analyze container', function(){
     )
 
     expect(loader).toExist();
-  });
-});
+  })
+})
