@@ -3,11 +3,11 @@ export default {
     let valid = true
 
     if(lastFmHandle == undefined || lastFmHandle == null) {
-      valid = false
+      return valid = false
     }
 
     if(lastFmHandle.length < 2) {
-      valid = false
+      return valid = false
     }
 
     return valid
