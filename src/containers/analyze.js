@@ -21,7 +21,7 @@ function mapDispatchToProps(dispatch) {
   return { fetchLovedTracks: bindActionCreators(fetchLovedTracks, dispatch) };
 }
 
-class Analyse extends React.Component {
+class Analyze extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = props.fetchLovedTracks.bind(this)
@@ -44,10 +44,10 @@ class Analyse extends React.Component {
   }
 }
 
-Analyse.propTypes = {
+Analyze.propTypes = {
   tracks: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   fetchLovedTracks: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Analyse)
+export default connect(mapStateToProps, mapDispatchToProps)(Analyze)
