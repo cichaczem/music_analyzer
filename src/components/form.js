@@ -13,6 +13,7 @@ class Form extends React.Component {
 
     this.onSubmit = (e) => {
       e.preventDefault()
+      e.stopPropagation()
       this.props.onSubmit(this.state.handle, this.handleError)
     }
   }
@@ -30,11 +31,11 @@ class Form extends React.Component {
     return (
       <div className="row">
         <div className="col-lg-6 col-lg-offset-3">
-          <form>
+          <form onSubmit={this.onSubmit}>
             <div className="input-group">
               <input className="form-control" placeholder="Last.fm username - eg. 'rj'" onChange={this.handleChange}/>
               <span className="input-group-btn">
-                <button className="btn btn-default" type="button" onClick={this.onSubmit}>Go!</button>
+                <button className="btn btn-default" type="submit">Go!</button>
               </span>
             </div>
             {error}
