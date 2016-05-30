@@ -38,5 +38,8 @@
   * some parts of the app need to be universal - must work on both client and server
 
   ### Future improvements
-There's not much use of server-side rendering at the moment but I believe taking care of it now will pay off in the future.
-I'd suggest adding feature specs in near future.
+* There's not much use of server-side rendering at the moment but I believe taking care of it now will pay off in the future
+* I'd suggest adding feature specs in near future
+* Currently, Bootstrap is used to make the look decent. This library is quite heavy. It would be good to remove it and write *CSS* and *JavaScript* without using any external libraries
+* The app also requires additional configuration before moving it to production environment
+* For a better state management I'd suggest using Immutable.js or other library for immutable data structures
